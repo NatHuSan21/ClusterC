@@ -1,0 +1,23 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+  File "/home/clirlab/natalia/Prueba41C/Cluster_Prueba41_RiemannianGradientOPP_1C_den25_5p8K.py", line 30
+    listaRep =[15]=[4,12,18]
+               ^^
+SyntaxError: cannot assign to literal
