@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=DebU390Brep
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=outputDebU390Brep.out
+#SBATCH -o outfileDebU390Brep.log 
+#SBATCH -e errfileDebU390Brep.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+
+#cd /home/est_posgrado_natalia.huitzil/ST2/Prueba25B
+cd /home/thomas.batard/SeminarioTesis2/Prueba39B
+
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+
+python Cluster_Prueba39_UnknownOperatorV4OPP_0B_20K.py
+
+
+date

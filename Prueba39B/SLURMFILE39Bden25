@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=P391Bden25rep
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=outputDen25P391Brep.out
+#SBATCH -o outfileDen25P391Brep.log 
+#SBATCH -e errfileDen25P391Brep.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+
+#cd /home/est_posgrado_natalia.huitzil/ST2/Prueba25B
+#cd /home/thomas.batard/SeminarioTesis2/Prueba39B
+cd /home/clirlab/natalia/Prueba39B/
+
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+
+python Cluster_Prueba39_UnknownOperatorV4OPP_1B_den25_10K.py
+#python Cluster_Prueba39_UnknownOperatorV4_2B_den25_10K.py
+
+date
