@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=502CdebUdata5
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=output502CdebUdata5.out
+#SBATCH -o outfile502CdebUdata5.log 
+#SBATCH -e errfile502CdebUdata5.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+
+cd /home/clirlab/natalia/Prueba50C/
+#cd /home/est_posgrado_natalia.huitzil/ST2/Prueba36/
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+
+python Cluster_Prueba50_GradientRiemannianNew_2C_debU_30K_data5_prom.py
+
+
+date
