@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=431Cden15esp
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=output431Cden15esp.out
+#SBATCH -o outfile431Cden15esp.log 
+#SBATCH -e errfile431Cden15esp.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+
+cd /home/clirlab/natalia/Prueba43C/
+#cd /home/est_posgrado_natalia.huitzil/ST2/Prueba36/
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+
+#python Cluster_Prueba43_RiemannianGradientNew_0C_den15_10K.py
+python Cluster_Prueba43_RiemannianGradientNewOPP_1C_den15_10K.py
+#python Cluster_Prueba43_GradientRiemannianNew_2C_debU_30K.py
+
+
+date
