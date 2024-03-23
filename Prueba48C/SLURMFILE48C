@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=480CdebUspComp
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=output480CdebUspComp.out
+#SBATCH -o outfile480CdebUspComp.log 
+#SBATCH -e errfile480CdebUspComp.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+
+cd /home/clirlab/natalia/Prueba48C/
+#cd /home/est_posgrado_natalia.huitzil/ST2/Prueba36/
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+
+python Cluster_Prueba48_RiemannianGradientNewOPP_0C_debU_30K_snPs.py
+#python Cluster_Prueba48_UnknownOperatorV4OPP_1B_debU_30K_sPsopp.py
+
+date
