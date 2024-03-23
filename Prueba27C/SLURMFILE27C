@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=Den273C
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=output273Cden.out
+#SBATCH -o outfileden273C.log 
+#SBATCH -e errfileden273C.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+
+cd /home/clirlab/natalia/Prueba27C
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+python Cluster_Prueba27_UnknownOperatorV4OPP_3C.py
+
+date
+
+
+###conda activate /home/est_posgrado_natalia.huitzil/.conda/envs/compu21
+###cd natalia/Prueba27C
+###sbatch SLURMFILE27C
