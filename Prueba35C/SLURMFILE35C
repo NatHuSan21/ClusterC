@@ -1,0 +1,33 @@
+#!/bin/bash
+
+#SBATCH --partition=GPU
+#SBATCH --job-name=DebU350
+#SBATCH --ntasks-per-node=10
+#SBATCH --output=outputdebU350.out
+#SBATCH -o outfiledebU350.log 
+#SBATCH -e errfiledebU350.txt
+
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=natalia.huitzil@cimat.mx
+#
+
+# exportar el path hacia los ejecutables de Python
+export PATH=$PATH:/opt/anaconda3_titan/bin
+source /home/est_posgrado_natalia.huitzil/.bashrc
+conda activate compu21
+
+hostname
+date
+# Ejecutar script
+cd /home/clirlab/natalia/Prueba35C
+#cd /home/est_posgrado_natalia.huitzil/ST2/Prueba35/
+#cd /home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8
+#cd/home/est_posgrado_natalia.huitzil/.conda/envs/myenv/bin/python3.8 runner.py
+#/home/est_posgrado_natalia.huitzil/.conda/envs/compu21/bin/python3.8 Cluster_Prueba7_Denoising3curvGaussian.py
+
+#python Cluster_Prueba32_UnknownOperatorV4OPP_0.py
+#python Cluster_Prueba34_DIP_0B.py
+#python Cluster_Prueba34_VectorialTotalVariation_2.py
+python Cluster_Prueba35_RiemannianGradientRGB_0B.py 
+
+date
